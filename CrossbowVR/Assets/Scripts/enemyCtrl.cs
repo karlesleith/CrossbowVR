@@ -6,7 +6,6 @@ public class enemyCtrl : MonoBehaviour
 {
     //declare the transform of our goal (where the navmesh agent will move towards) and our navmesh agent (in this case our zombie)
     private Transform goal;
-    public GameObject goalPost;
     private UnityEngine.AI.NavMeshAgent agent;
 
 
@@ -15,12 +14,13 @@ public class enemyCtrl : MonoBehaviour
     {
 
         //create references
-        goal = goalPost.gameObject.transform;
+        //finding the gameobject "Goal" and letting the gobilns move toward the goal
+        goal = GameObject.Find("Goal").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //set the navmesh agent's desination equal to the main camera's position (our first person character)
         agent.destination = goal.position;
         //start the walking animation
-        GetComponent<Animation>().Play("walk");
+        GetComponent<Animation>().Play("run");
     }
 
 
@@ -35,7 +35,7 @@ public class enemyCtrl : MonoBehaviour
         agent.destination = gameObject.transform.position;
         //stop the walking animation and play the falling back animation
         GetComponent<Animation>().Stop();
-        GetComponent<Animation>().Play("back_fall");
+        GetComponent<Animation>().Play("death");
         //destroy this zombie in six seconds.
         Destroy(gameObject, 6);
         //instantiate a new zombie

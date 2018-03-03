@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 public class playerScript : MonoBehaviour
 {
 
     //declare GameObjects and create isShooting boolean.
-    private GameObject crossbow;
+    private GameObject gun;
     private GameObject spawnPoint;
     private bool isShooting;
 
@@ -17,8 +18,8 @@ public class playerScript : MonoBehaviour
         Application.targetFrameRate = 60;
 
         //create references to gun and bullet spawnPoint objects
-        crossbow = gameObject.transform.GetChild(0).gameObject;
-        spawnPoint = crossbow.transform.GetChild(0).gameObject;
+        gun = gameObject.transform.GetChild(0).gameObject;
+        spawnPoint = gun.transform.GetChild(0).gameObject;
 
         //set isShooting bool to default of false
         isShooting = false;
@@ -30,18 +31,17 @@ public class playerScript : MonoBehaviour
         //set is shooting to true so we can't shoot continuosly
         isShooting = true;
         //instantiate the bullet
-        GameObject arrow = Instantiate(Resources.Load("Arrow", typeof(GameObject))) as GameObject;
+        GameObject bullet = Instantiate(Resources.Load("Arrow", typeof(GameObject))) as GameObject;
+        Debug.Log("Debug: Arrow Spawned");
         //Get the bullet's rigid body component and set its position and rotation equal to that of the spawnPoint
-        Rigidbody rb = arrow.GetComponent<Rigidbody>();
-        arrow.transform.rotation = spawnPoint.transform.rotation;
-        arrow.transform.position = spawnPoint.transform.position;
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        bullet.transform.rotation = spawnPoint.transform.rotation;
+        bullet.transform.position = spawnPoint.transform.position;
         //add force to the bullet in the direction of the spawnPoint's forward vector
-        rb.AddForce(spawnPoint.transform.forward * 500f);
+        rb.AddForce(spawnPoint.transform.forward * 1f);
         //play the gun shot sound and gun animation
-        GetComponent<AudioSource>().Play();
-        crossbow.GetComponent<Animation>().Play();
         //destroy the bullet after 1 second
-        Destroy(arrow, 1);
+        Destroy(bullet, 1);
         //wait for 1 second and set isShooting to false so we can shoot again
         yield return new WaitForSeconds(1f);
         isShooting = false;
@@ -61,8 +61,9 @@ public class playerScript : MonoBehaviour
         {
 
             //if the raycast hits any game object where its name contains "zombie" and we aren't already shooting we will start the shooting coroutine
-            if (hit.collider.name.Contains("zombie"))
+            if (hit.collider.name.Contains("Goblin"))
             {
+                Debug.Log("Debug: HIT! : "+ hit.collider.name);
                 if (!isShooting)
                 {
                     StartCoroutine("Shoot");
