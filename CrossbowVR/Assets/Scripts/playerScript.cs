@@ -6,9 +6,10 @@ public class playerScript : MonoBehaviour
 {
 
     //declare GameObjects and create isShooting boolean.
-    private GameObject gun;
-    private GameObject spawnPoint;
+    public GameObject gun;
+    public GameObject spawnPoint;
     private bool isShooting;
+
 
     // Use this for initialization
     void Start()
@@ -18,8 +19,8 @@ public class playerScript : MonoBehaviour
         Application.targetFrameRate = 60;
 
         //create references to gun and bullet spawnPoint objects
-        gun = gameObject.transform.GetChild(0).gameObject;
-        spawnPoint = gun.transform.GetChild(0).gameObject;
+        //gun = gameObject.transform.GetChild(0).gameObject;
+        //spawnPoint = gun.transform.GetChild(0).gameObject;
 
         //set isShooting bool to default of false
         isShooting = false;
@@ -70,6 +71,17 @@ public class playerScript : MonoBehaviour
                 }
 
             }
+            if (hit.collider.name.Contains("Pointer"))
+            {
+                Debug.Log("Debug: Teleporting XD! : " + hit.collider.name);
+                
+
+                this.transform.position = hit.transform.position;
+
+            }
+
+          
+
 
         }
 
