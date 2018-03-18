@@ -27,22 +27,25 @@ public class playerScript : MonoBehaviour
     }
 
     //Shoot function is IEnumerator so we can delay for seconds
-    IEnumerator Shoot()
+    IEnumerator Shoot(Transform target)
     {
         //set is shooting to true so we can't shoot continuosly
         isShooting = true;
         //instantiate the bullet
-        GameObject bullet = Instantiate(Resources.Load("Arrow", typeof(GameObject))) as GameObject;
-        Debug.Log("Debug: Arrow Spawned");
+        GameObject bullet = Instantiate(Resources.Load("Bolt", typeof(GameObject))) as GameObject;
+        bullet.transform.localScale= new Vector3(0.1f,0.1f,0.07f);
+        BoltCtrl bc = bullet.GetComponent<BoltCtrl>();
+       // Debug.Log("Debug: Arrow Spawned");
         //Get the bullet's rigid body component and set its position and rotation equal to that of the spawnPoint
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         bullet.transform.rotation = spawnPoint.transform.rotation;
         bullet.transform.position = spawnPoint.transform.position;
+        bc.destination = target.position;
         //add force to the bullet in the direction of the spawnPoint's forward vector
-        rb.AddForce(spawnPoint.transform.forward * 1f);
+        //rb.AddForce(spawnPoint.transform.forward * 1f);
         //play the gun shot sound and gun animation
         //destroy the bullet after 1 second
-        Destroy(bullet, 1);
+        Destroy(bullet, 3);
         //wait for 1 second and set isShooting to false so we can shoot again
         yield return new WaitForSeconds(1f);
         isShooting = false;
@@ -64,16 +67,16 @@ public class playerScript : MonoBehaviour
             //if the raycast hits any game object where its name contains "zombie" and we aren't already shooting we will start the shooting coroutine
             if (hit.collider.name.Contains("Goblin"))
             {
-                Debug.Log("Debug: HIT! : "+ hit.collider.name);
+               // Debug.Log("Debug: HIT! : "+ hit.collider.name);
                 if (!isShooting)
                 {
-                    StartCoroutine("Shoot");
+                    StartCoroutine(Shoot(hit.transform));
                 }
 
             }
             if (hit.collider.name.Contains("Pointer"))
             {
-                Debug.Log("Debug: Teleporting XD! : " + hit.collider.name);
+                //Debug.Log("Debug: Teleporting XD! : " + hit.collider.name);
                 
 
                 this.transform.position = hit.transform.position;
