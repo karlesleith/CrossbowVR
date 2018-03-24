@@ -9,6 +9,7 @@ public class playerScript : MonoBehaviour
     public GameObject gun;
     public GameObject spawnPoint;
     private bool isShooting;
+    
 
 
     // Use this for initialization
@@ -35,6 +36,8 @@ public class playerScript : MonoBehaviour
         GameObject bullet = Instantiate(Resources.Load("Bolt", typeof(GameObject))) as GameObject;
         bullet.transform.localScale= new Vector3(0.1f,0.1f,0.07f);
         BoltCtrl bc = bullet.GetComponent<BoltCtrl>();
+        var boltSound = bullet.GetComponent<AudioSource>();
+        boltSound.Play();
        // Debug.Log("Debug: Arrow Spawned");
         //Get the bullet's rigid body component and set its position and rotation equal to that of the spawnPoint
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
@@ -60,6 +63,8 @@ public class playerScript : MonoBehaviour
         //draw the ray for debuging purposes (will only show up in scene view)
         Debug.DrawRay(spawnPoint.transform.position, spawnPoint.transform.forward, Color.green);
 
+
+     
         //cast a ray from the spawnpoint in the direction of its forward vector
         if (Physics.Raycast(spawnPoint.transform.position, spawnPoint.transform.forward, out hit, 100))
         {
