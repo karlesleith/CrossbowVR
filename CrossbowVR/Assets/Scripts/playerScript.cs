@@ -72,7 +72,7 @@ public class playerScript : MonoBehaviour
             //if the raycast hits any game object where its name contains "zombie" and we aren't already shooting we will start the shooting coroutine
             if (hit.collider.name.Contains("Goblin"))
             {
-               // Debug.Log("Debug: HIT! : "+ hit.collider.name);
+                Debug.Log("Debug: HIT! : "+ hit.collider.name);
                 if (!isShooting)
                 {
                     StartCoroutine(Shoot(hit.transform));
@@ -81,7 +81,7 @@ public class playerScript : MonoBehaviour
             }
             if (hit.collider.name.Contains("Pointer"))
             {
-                //Debug.Log("Debug: Teleporting XD! : " + hit.collider.name);
+                Debug.Log("Debug: Teleporting XD! : " + hit.collider.name);
                 
 
                 this.transform.position = hit.transform.position;

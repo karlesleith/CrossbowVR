@@ -9,7 +9,7 @@ public class BoltCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        speed = 6;
+        speed = 9;
     }
 	
 	// Update is called once per frame

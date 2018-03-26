@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class teleporterCtrl : MonoBehaviour {
 
-    public GameObject wayPoint;
+    private GameObject wayPoint;
+    public float speed;
 
-    void teleport()
+
+    void Start()
     {
-       
-    } 
+        wayPoint = this.gameObject;
+
+    }
+
+    
+    void Update()
+    {
+        //Spining Pointer to add more life
+        wayPoint.transform.Rotate(Vector3.back, speed * Time.deltaTime);
+
+
+
+    }
 }
