@@ -9,14 +9,21 @@ public class GameLoopCtrl : MonoBehaviour {
 
     public List<GameObject> spawners = new List<GameObject>();
     public GameObject announcement;
+    public GameObject bonus;
+
+    public GameObject gate;
 
     private bool announcementActive;
     private int enemyNum = 5;
     private int round = 1;
+    private int scoreCnt = 10;
+    public int scoreSpeed;
+    
 
     public Text roundText;
 
 
+    public Text scoreText;
 
     void Awake()
     {
@@ -37,6 +44,8 @@ public class GameLoopCtrl : MonoBehaviour {
         }
         roundText.text = "ROUND " + round;
 
+        scoreCnt += scoreSpeed;
+        scoreText.text = "Score:" + scoreCnt;
     }
 
 
@@ -44,6 +53,7 @@ public class GameLoopCtrl : MonoBehaviour {
     {
         Debug.Log("Round: " + round + ". Enemies: " + enemyNum);
         this.announcementActive = true;
+        gate.GetComponent<GateHealthCtrl>().HealthBonus(25);
         this.round = round;
         this.enemyNum = enemyNum;
         while (this.enemyNum > 0)
@@ -67,7 +77,9 @@ public class GameLoopCtrl : MonoBehaviour {
     IEnumerator DisplayRound()
     {
         announcement.SetActive(true);
+        bonus.SetActive(true);
         yield return new WaitForSeconds(5);
         announcement.SetActive(false);
+        bonus.SetActive(false);
     }
 }

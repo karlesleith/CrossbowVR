@@ -10260,6 +10260,7 @@ Animation:
   m_Animations:
   - {fileID: 7400036, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
   - {fileID: 7400030, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
+  - {fileID: 7400016, guid: 2de911d45fd8d124c90453569b0194ca, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

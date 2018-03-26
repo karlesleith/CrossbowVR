@@ -5,18 +5,59 @@ using UnityEngine.UI;
 
 public class GateHealthCtrl : MonoBehaviour {
 
-    public Image healthBar;
+    public int gateMaxHealth;
+    public int gateCurrentHealth;
+
+    public Slider HealthBar;
+    
 
 	// Use this for initialization
 	void Start () {
-        healthBar.fillAmount = 1;
+        //Start the Game with Full health
+        gateCurrentHealth = gateMaxHealth;
+
+        HealthBar.maxValue = gateMaxHealth;
+        HealthBar.value = HealthBar.maxValue; 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        float hp = 250 * 100f / 250;
-        hp /= 100f;
-        healthBar.fillAmount = hp;
+        //To DO! If the GatesHealth Reaches 0
+        //Stop the game and Show the User teh HighScore
+
+
+        if (gateCurrentHealth < 0)
+        {
+            gateCurrentHealth = 0;
+            Debug.Log("Game Over!");
+        }
+    
+    }
+
+    //Damage the Gate
+   public void DamageGate(int damageToGive)
+    {
+
+        gateCurrentHealth -= damageToGive;
+
+        HealthBar.value -= damageToGive;
+    }
+
+    public void HealthBonus(int HealthBonus)
+    {
+        Debug.Log("HealthBonus!");
+        gateCurrentHealth += HealthBonus;
+        HealthBar.value += HealthBonus;
+        if(gateCurrentHealth > gateMaxHealth)
+        {
+            gateCurrentHealth = gateMaxHealth;
+            HealthBar.value = HealthBar.maxValue;
+        }
+    }
+
+    public void SetGateHealthBonus(int bonus)
+    {
+        gateCurrentHealth += bonus;
     }
 }

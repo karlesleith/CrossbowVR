@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ef9d31f99a3894e88e16bae5332e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageToGive: 1
 --- !u!136 &136655105262793716
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1451,7 +1452,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.44550186
+  m_Speed: 0.23058012
   m_Acceleration: 0.1
   avoidancePriority: 50
   m_AngularSpeed: 0.3

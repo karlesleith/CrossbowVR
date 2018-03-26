@@ -9,6 +9,10 @@ public class enemyCtrl : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator anim;
 
+    public int damageToGive;
+
+ 
+
     // Use this for initialization
     void Start()
     {
@@ -22,7 +26,7 @@ public class enemyCtrl : MonoBehaviour
         agent.destination = goal.position;
     }
 
-    //for this to work both need colliders, one must have rigid body, and the zombie must have is trigger checked.
+    //for this to work both need colliders, one must have rigid body, and the goblin must have is trigger checked.
     void OnTriggerEnter(Collider col)
     {
 
@@ -42,9 +46,23 @@ public class enemyCtrl : MonoBehaviour
             Destroy(gameObject, 3);
 
         }
+
+        if(col.gameObject.name == "TargetBarricade")
+        {
+
+            Debug.Log("Damaging Gate: " + damageToGive);
+
+            col.gameObject.GetComponent<GateHealthCtrl>().DamageGate(damageToGive);
+
+            
+
+
+        }
+
+
         
-        //instantiate a new zombie
-        //GameObject zombie = Instantiate(Resources.Load("goblin", typeof(GameObject))) as GameObject;
+        //instantiate a new Goblin
+        //GameObject goblin = Instantiate(Resources.Load("goblin", typeof(GameObject))) as GameObject;
 
         //set the coordinates for a new vector 3
         //float randomX = UnityEngine.Random.Range(-12f, 12f);
@@ -53,15 +71,15 @@ public class enemyCtrl : MonoBehaviour
         //set the zombies position equal to these new coordinates
         //zombie.transform.position = new Vector3(randomX, constantY, randomZ);
 
-        //if the zombie gets positioned less than or equal to 3 scene units away from the camera we won't be able to shoot it
-        //so keep repositioning the zombie until it is greater than 3 scene units away. 
-        //while (Vector3.Distance(zombie.transform.position, Camera.main.transform.position) <= 3)
+        //if the goblin gets positioned less than or equal to 3 scene units away from the camera we won't be able to shoot it
+        //so keep repositioning the goblin until it is greater than 3 scene units away. 
+        //while (Vector3.Distance(goblin.transform.position, Camera.main.transform.position) <= 3)
        // {
 
            // randomX = UnityEngine.Random.Range(-12f, 12f);
             //randomZ = UnityEngine.Random.Range(-13f, 13f);
 
-            //zombie.transform.position = new Vector3(randomX, constantY, randomZ);
+            //goblin.transform.position = new Vector3(randomX, constantY, randomZ);
        // }
 
     }
