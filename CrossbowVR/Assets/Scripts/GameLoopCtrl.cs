@@ -10,16 +10,15 @@ public class GameLoopCtrl : MonoBehaviour {
     public List<GameObject> spawners = new List<GameObject>();
     public GameObject announcement;
     public GameObject bonus;
+    public GameObject deathScreen;
 
     public GameObject gate;
 
     private bool announcementActive;
     private int enemyNum = 5;
     private int round = 1;
-    private int scoreCnt = 10;
-    public int scoreSpeed;
-    
-
+    public int scoreCnt = 0;
+  
     public Text roundText;
 
 
@@ -34,18 +33,30 @@ public class GameLoopCtrl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         StartCoroutine(Round(1, 5));
+        scoreText.text = "Score:" + scoreCnt;
     }
 
     private void Update()
     {
+        //Update The Score 
+        scoreText.text = "Score:" + scoreCnt;
         if (announcementActive)
         {
             StartCoroutine(DisplayRound());            
         }
         roundText.text = "ROUND " + round;
 
-        scoreCnt += scoreSpeed;
-        scoreText.text = "Score:" + scoreCnt;
+        
+
+        //GameOver
+
+        if (gate.GetComponent<GateHealthCtrl>().gateCurrentHealth <= 0)
+        {
+
+            deathScreen.SetActive(true);
+            announcement.SetActive(false);
+
+        }
     }
 
 
@@ -81,5 +92,19 @@ public class GameLoopCtrl : MonoBehaviour {
         yield return new WaitForSeconds(5);
         announcement.SetActive(false);
         bonus.SetActive(false);
+    }
+
+
+    public void Score(int kp)
+    {
+        
+        scoreCnt += kp;
+        scoreText.text = "Score:" + scoreCnt;
+    }
+
+    public void LoadLevel()
+    {
+
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

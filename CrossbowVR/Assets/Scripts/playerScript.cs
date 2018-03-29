@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class playerScript : MonoBehaviour
     public GameObject gun;
     public GameObject spawnPoint;
     private bool isShooting;
+   
     
 
 
@@ -86,9 +88,24 @@ public class playerScript : MonoBehaviour
 
                 this.transform.position = hit.transform.position;
 
-            }
+           
 
+
+
+            }
+            if (hit.collider.name.Contains("ExitButton"))
+            {
+                Debug.Log("Debug: Exiting XD! : " + hit.collider.name);
+
+      
+               
+
+                SceneManager.LoadScene(0);
+
+            }
           
+
+
 
 
         }

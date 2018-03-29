@@ -1,6 +1,6 @@
 ﻿
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class enemyCtrl : MonoBehaviour
 {
@@ -9,9 +9,11 @@ public class enemyCtrl : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator anim;
 
+    public int killPoints;
+  
+
     public int damageToGive;
 
- 
 
     // Use this for initialization
     void Start()
@@ -32,11 +34,11 @@ public class enemyCtrl : MonoBehaviour
 
         if (col.gameObject.name == "Bolt(Clone)")
         {
-            //first disable the zombie's collider so multiple collisions cannot occur
+            //first disable the goblins's collider so multiple collisions cannot occur
             GetComponent<CapsuleCollider>().enabled = false;
             //destroy the bullet
             Destroy(col.gameObject);
-            //stop the zombie from moving forward by setting its destination to it's current position
+            //stop the goblins from moving forward by setting its destination to it's current position
             agent.speed = 0;
             //stop the walking animation and play the falling back animation
             //GetComponent<Animation>().Stop();
@@ -45,22 +47,24 @@ public class enemyCtrl : MonoBehaviour
             //destroy this goblin in three seconds.
             Destroy(gameObject, 3);
 
+            Score();
+
         }
 
-        if(col.gameObject.name == "TargetBarricade")
+        if (col.gameObject.name == "TargetBarricade")
         {
 
             Debug.Log("Damaging Gate: " + damageToGive);
 
             col.gameObject.GetComponent<GateHealthCtrl>().DamageGate(damageToGive);
 
-            
+
 
 
         }
 
 
-        
+
         //instantiate a new Goblin
         //GameObject goblin = Instantiate(Resources.Load("goblin", typeof(GameObject))) as GameObject;
 
@@ -74,18 +78,21 @@ public class enemyCtrl : MonoBehaviour
         //if the goblin gets positioned less than or equal to 3 scene units away from the camera we won't be able to shoot it
         //so keep repositioning the goblin until it is greater than 3 scene units away. 
         //while (Vector3.Distance(goblin.transform.position, Camera.main.transform.position) <= 3)
-       // {
+        // {
 
-           // randomX = UnityEngine.Random.Range(-12f, 12f);
-            //randomZ = UnityEngine.Random.Range(-13f, 13f);
+        // randomX = UnityEngine.Random.Range(-12f, 12f);
+        //randomZ = UnityEngine.Random.Range(-13f, 13f);
 
-            //goblin.transform.position = new Vector3(randomX, constantY, randomZ);
-       // }
+        //goblin.transform.position = new Vector3(randomX, constantY, randomZ);
+        // }
 
     }
 
-
-
+    void Score()
+    {
+        
+        FindObjectOfType<GameLoopCtrl>().scoreCnt +=killPoints;
+    }
 
 
 }
