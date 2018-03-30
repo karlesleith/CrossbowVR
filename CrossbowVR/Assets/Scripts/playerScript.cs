@@ -27,6 +27,8 @@ public class playerScript : MonoBehaviour
 
         //set isShooting bool to default of false
         isShooting = false;
+
+
     }
 
     //Shoot function is IEnumerator so we can delay for seconds
@@ -97,9 +99,9 @@ public class playerScript : MonoBehaviour
             {
                 Debug.Log("Debug: Exiting XD! : " + hit.collider.name);
 
-      
-               
 
+
+    
                 SceneManager.LoadScene(0);
 
             }

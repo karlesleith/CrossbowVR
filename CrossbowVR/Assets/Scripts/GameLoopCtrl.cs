@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameLoopCtrl : MonoBehaviour {
 
@@ -53,6 +54,7 @@ public class GameLoopCtrl : MonoBehaviour {
         if (gate.GetComponent<GateHealthCtrl>().gateCurrentHealth <= 0)
         {
 
+            SceneManager.LoadScene(0);
             deathScreen.SetActive(true);
             announcement.SetActive(false);
 
