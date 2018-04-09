@@ -33,11 +33,13 @@ The game uses a set of scripts that run on top of the Unity Engine. We have the 
     * TitleCamera
 * Core Mechanics:
     * PlayerScript: Handles player actions, such as shoot bolts at enemies.
-    * EnemyCtrl
-    * TeleporterCtrl
-    * BoltCtrl
+    * EnemyCtrl: Controlls Enemy Behaviour.
+    * TeleporterCtrl: Manages player teleportation between towers.
+    * BoltCtrl: Handles bolt displacement alon the raycast.
 * Visual Effects:
-    * EnemyAnimationCtrl
+    * EnemyAnimationCtrl: Plays enemy animations when required.
+
+    ![diagram](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/UmlDiagram.png)
 
 
 ## Conclusions & Recommendations
