@@ -1,6 +1,8 @@
 # CrossbowVR (AKA STORM THE DOOR!)
 Team Project for Gesture Based UI Developement Due April 9th 2018,  by Karle Sleith (FourLeaf Interactive) and Albert Rando Jimenez (Dullahan Studio).
 
+Download the latest release [HERE](https://github.com/karlesleith/CrossbowVR/blob/master/releases/CrossbowVR%201.0.0.apk) !
+
 ![Screenshot](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/ScreenShot1.PNG)
 
 ## Introduction 
@@ -19,7 +21,7 @@ The Goal is to compete for the HighScore, So make sure you take out as many Gobl
 
 
 ## Development
-During the process of development we learned how to use the Android SDK Google Cardboard VR packages for Unity.
+During the process of development we learned how to use the Android SDK Google Cardboard VR packages for Unity. Scenearios have been design and built up from scratch. Low-poly terrain created using unity, krita and blender. Animations have been customized using mixamo. All scripts have been written from scratch and built around the cardboard sdk to maximize its capabilities. It is open for further development, so in case of future iterations we can add more scenarios and more complex score systems and leaderboards. With some effort the game can be ported to other platforms.
 
 ### Software Architecture
 
@@ -44,7 +46,7 @@ The game uses a set of scripts that run on top of the Unity Engine. We have the 
 
 ## Conclusions & Recommendations
 
-Developing a game always has a playful component. By doing something be love we have enjoyed this project thoroughly, and we polished it so the mechanichs are intuitive and well designed to allow users to engage quickly with the game loop. We further improved our knowledge on C#, and the usage of Unity's built in AI by using Agents and Navigation Meshes. The google cardboard SDK can be tricky to use but once we got down to it we managed to fully implement it in our game to a successful extent. 
+Developing a game always has a playful component. By doing something be love we have enjoyed this project thoroughly, and we polished it so the mechanichs are intuitive and well designed allowing users to engage quickly with the game loop. We further improved our knowledge on C#, and the usage of Unity's built-in AI by using Agents and Navigation Meshes. The google cardboard SDK can be tricky to use but once we got down to it we managed to fully implement it in our game to a successful extent. 
 
 
 ## Authors
