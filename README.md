@@ -27,9 +27,8 @@ During the process of development we learned how to use the Android SDK Google C
 
 ### Software Architecture
 
-![Architecture](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/Architecture.png)
 <p align="center">
-<img src="https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/Architecture.png" width="350">
+<img src="https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/Architecture.png" width="500">
 </p>
 
 The game uses a set of scripts that run on top of the Unity Engine. We have the following scripts:
