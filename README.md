@@ -8,6 +8,8 @@ Download the latest release [HERE](https://github.com/karlesleith/CrossbowVR/blo
 ## Introduction 
 In "Storm The Door", you are a lone infantry tasked to protect the village from a hoard of mischievous Goblins.
 
+[![CrossbowVR](https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=zAAsw9H6QTI)
+
 ### How To Play
 This game is compatible with Android devices and intended to be played with a VR Viewer (Such as Google Cardboard). In order to interact with the game and menus the player will have to "look" around using their gaze to either select options in the menus or shoot at the devious goblins.
 
@@ -24,6 +26,11 @@ The Goal is to compete for the HighScore, So make sure you take out as many Gobl
 During the process of development we learned how to use the Android SDK Google Cardboard VR packages for Unity. Scenearios have been design and built up from scratch. Low-poly terrain created using unity, krita and blender. Animations have been customized using mixamo. All scripts have been written from scratch and built around the cardboard sdk to maximize its capabilities. It is open for further development, so in case of future iterations we can add more scenarios and more complex score systems and leaderboards. With some effort the game can be ported to other platforms.
 
 ### Software Architecture
+
+![Architecture](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/Architecture.png)
+<p align="center">
+<img src="https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/Architecture.png" width="350">
+</p>
 
 The game uses a set of scripts that run on top of the Unity Engine. We have the following scripts:
 * Game Loop Scripts:
