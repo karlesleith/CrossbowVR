@@ -8,7 +8,7 @@ Download the latest release [HERE](https://github.com/karlesleith/CrossbowVR/blo
 ## Introduction 
 In "Storm The Door", you are a lone infantry tasked to protect the village from a hoard of mischievous Goblins.
 
-[![CrossbowVR](https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=zAAsw9H6QTI)
+[![CrossbowVR](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/YoutubeDemoImage.png)](https://www.youtube.com/watch?v=zAAsw9H6QTI)
 
 ### How To Play
 This game is compatible with Android devices and intended to be played with a VR Viewer (Such as Google Cardboard). In order to interact with the game and menus the player will have to "look" around using their gaze to either select options in the menus or shoot at the devious goblins.
