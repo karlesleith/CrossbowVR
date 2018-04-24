@@ -1,7 +1,7 @@
 # CrossbowVR (AKA STORM THE DOOR!)
 Team Project for Gesture Based UI Developement Due April 9th 2018,  by Karle Sleith (FourLeaf Interactive) and Albert Rando Jimenez (Dullahan Studio).
 
-Download the latest release [HERE](https://github.com/karlesleith/CrossbowVR/blob/master/releases/CrossbowVR%201.0.0.apk) !
+Download the latest release [HERE](https://github.com/karlesleith/CrossbowVR/blob/master/releases/CrossbowVR%201.1.0.apk) !
 
 ![Screenshot](https://github.com/karlesleith/CrossbowVR/blob/master/ReadMeImages/ScreenShot1.PNG)
 
