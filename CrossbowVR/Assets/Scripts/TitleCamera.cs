@@ -9,6 +9,8 @@ public class TitleCamera : MonoBehaviour
     public GameObject rayCaster;
     public float rotateSpeed = 8f;
 
+    private int playTime = 0;
+    private int quitTime = 0;
 
     void Start()
     {
@@ -19,9 +21,6 @@ public class TitleCamera : MonoBehaviour
         //create references to gun and bullet spawnPoint objects
         //gun = gameObject.transform.GetChild(0).gameObject;
         //spawnPoint = gun.transform.GetChild(0).gameObject;
-
-
-      
 
     }
 
@@ -52,29 +51,34 @@ public class TitleCamera : MonoBehaviour
 
 
         //cast a ray from the spawnpoint in the direction of its forward vector
-        if (Physics.Raycast(rayCaster.transform.position, rayCaster.transform.forward, out hit, 100))
+        if (Physics.Raycast(rayCaster.transform.position, rayCaster.transform.forward, out hit, 200))
         {
+
             if (hit.collider.name.Contains("PlayBox"))
             {
-                Debug.Log("Debug: Playing XD! : " + hit.collider.name);
-
-                SceneManager.LoadScene(1);
-
-
+                if (playTime > 20)
+                {
+                    Debug.Log("Debug: Playing XD! : " + hit.collider.name);
+                    SceneManager.LoadScene(1);
+                }
+                playTime++;
             }
-            if (hit.collider.name.Contains("QuitBox"))
+            else if (hit.collider.name.Contains("QuitBox"))
             {
-                Debug.Log("Debug: Quitting XD! : " + hit.collider.name);
 
-                Application.Quit();
+                if (quitTime > 20)
+                {
+                    Debug.Log("Debug: Quitting XD! : " + hit.collider.name);
 
-
-            }
-
+                    Application.Quit();
+                }
+                quitTime++;
+            } 
         }
-           
-
-
-
+        else
+        {
+            playTime = 0;
+            quitTime = 0;
         }
     }
+}

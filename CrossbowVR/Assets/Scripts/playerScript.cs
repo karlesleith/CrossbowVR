@@ -11,8 +11,7 @@ public class playerScript : MonoBehaviour
     public GameObject spawnPoint;
     private bool isShooting;
    
-    
-
+   
 
     // Use this for initialization
     void Start()
@@ -21,9 +20,6 @@ public class playerScript : MonoBehaviour
         //only needed for IOS
         Application.targetFrameRate = 60;
 
-        //create references to gun and bullet spawnPoint objects
-        //gun = gameObject.transform.GetChild(0).gameObject;
-        //spawnPoint = gun.transform.GetChild(0).gameObject;
 
         //set isShooting bool to default of false
         isShooting = false;
@@ -70,10 +66,10 @@ public class playerScript : MonoBehaviour
 
      
         //cast a ray from the spawnpoint in the direction of its forward vector
-        if (Physics.Raycast(spawnPoint.transform.position, spawnPoint.transform.forward, out hit, 100))
+        if (Physics.Raycast(spawnPoint.transform.position, spawnPoint.transform.forward, out hit, 300))
         {
 
-            //if the raycast hits any game object where its name contains "zombie" and we aren't already shooting we will start the shooting coroutine
+            //if the raycast hits any game object where its name contains "Goblin" and we aren't already shooting we will start the shooting coroutine
             if (hit.collider.name.Contains("Goblin"))
             {
                 Debug.Log("Debug: HIT! : "+ hit.collider.name);

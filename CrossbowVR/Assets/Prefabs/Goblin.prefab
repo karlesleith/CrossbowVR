@@ -1453,7 +1453,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0.7751687
+  m_Speed: 0.46005127
   m_Acceleration: 0.1
   avoidancePriority: 50
   m_AngularSpeed: 0.3

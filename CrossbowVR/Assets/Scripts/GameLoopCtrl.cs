@@ -24,6 +24,9 @@ public class GameLoopCtrl : MonoBehaviour {
 
 
     public Text scoreText;
+    public Text hiScore;
+
+    private LocalDB db;
 
     void Awake()
     {
@@ -33,12 +36,15 @@ public class GameLoopCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        db = GetComponent<LocalDB>();
         StartCoroutine(Round(1, 5));
         scoreText.text = "Score:" + scoreCnt;
+        hiScore.text = "HiScore: " + db.LoadMaxScore();
     }
 
     private void Update()
     {
+
         //Update The Score 
         scoreText.text = "Score:" + scoreCnt;
         if (announcementActive)
@@ -53,7 +59,7 @@ public class GameLoopCtrl : MonoBehaviour {
 
         if (gate.GetComponent<GateHealthCtrl>().gateCurrentHealth <= 0)
         {
-
+            db.SaveScore(scoreCnt);
             SceneManager.LoadScene(0);
             deathScreen.SetActive(true);
             announcement.SetActive(false);
